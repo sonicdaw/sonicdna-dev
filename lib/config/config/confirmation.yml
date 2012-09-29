@@ -1,0 +1,12 @@
+friend_confirm: "Pending %friend% link requests"
+community_confirm: "Pending %community% joining requests"
+community_admin_request: "Pending %community% administrator taking over requests"
+community_sub_admin_request: "Pending %community% sub-administrator requests"
+
+band_confirm: "Pending %band% joining requests"
+band_admin_request: "Pending %band% administrator taking over requests"
+band_sub_admin_request: "Pending %band% sub-administrator requests"
+event_confirm: "Pending %event% joining requests"
+event_admin_request: "Pending %event% administrator taking over requests"
+event_sub_admin_request: "Pending %event% sub-administrator requests"
+

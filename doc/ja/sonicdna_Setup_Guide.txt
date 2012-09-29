@@ -1,0 +1,97 @@
+===========================
+sonicdna.net セットアップ手順
+===========================
+
+はじめに
+========
+
+sonicdna.net は、OpenPNEがサポートするサーバ環境で動作します。
+(OpenPNE 3.8.2との組み合わせで開発しています)
+
+
+
+セットアップ
+============
+
+OpenPNE3 をセットアップする (インストールコマンドは実行しない)
+--------------------------
+
+http://www.openpne.jp
+
+
+
+sonicdna.net Pluginsセットアップ
+  Event, Band, Tunes Plugin, OpenPNE更新ファイル(3.8.2ベース) のコピー
+--------------------------
+
+sonicdna.net ルートディレクトリ を、 OopenPNE ルートディレクトリ OPENPNEDIR に上書きコピーする。
+
+
+
+
+Janrain plugin setup (OAuth ログインを使用する場合)
+--------------------------
+https://github.com/tejima/opAuthJanrainPlugin
+
+tejima-opAuthJanrainPlugin-*.zip を OPENPNEDIR/plugins に展開し、フォルダ名を "opAuthJanrainPlugin" に変更
+
+
+
+
+インストールコマンドの実行
+--------------------------
+OpenPNE のインストール方法に従ってインストール
+ex)  $ ./symfony openpne:install --internet
+
+
+
+
+設定
+============
+http://openpne_url/pc_backend.php (管理画面) で以下を設定
+
++ プラグイン設定
+ 事前に http://janrain.com/ で設定し、API Key, Application Name を取得しておく
+
+ プラグイン設定 - 認証プラグイン設定 - opAuthJanrainPlugin のみを選ぶ
+ プラグイン設定 - 認証プラグイン設定 - opAuthJanrainPlugin の [設定] を選択
+                                Janrain API Key を入力する
+                                Janrain Usernameに Application Name を入力する
+
+
++ プロフィール編集
+ プロフィール項目設定 - 自己紹介 op_preset_self_introduction 以外削除
+ プロフィール項目設定 - プロフィール項目登録 - 識別子: part の項目作成 (項目名 en: Part、ja_JP: パート)
+
+
++ ナビゲーション編集
+ ナビゲーション編集 - "default", "friend", "community" 項目全削除
+
+
++ デザイン変更
+ Mac のSafari 6.0.1 にて、プロフィール写真が下にでてくるため回避設定
+
+ デザイン設定 - ガジェット設定 - ホーム画面ガジェット設定 - "プロフィール写真" を選択 - このガジェットを削除する
+    - "参加バンドリスト" を選択 - このガジェットを削除する
+    - "参加イベントリスト" を選択 - このガジェットを削除する
+      [設定変更] ボタンを押す
+
+ デザイン設定 - ガジェット設定 - ホーム画面ガジェット設定
+    - ガジェットを追加 - "プロフィール写真" を選択 - このガジェットを追加する - [設定変更] ボタンを押す
+    - ガジェットを追加 - "参加バンドリスト" を選択 - このガジェットを追加する - [設定変更] ボタンを押す
+    - ガジェットを追加 - "参加イベントリスト" を選択 - このガジェットを追加する - [設定変更] ボタンを押す
+
+
++ SNS設定
+ SNS設定 - SNS名, ページタイトルを変更
+
+
++ フッター変更
+ SNS設定 - サイトポリシー関連設定 - 利用規約/プライバシーポリシー
+ デザイン設定 - HTML挿入 -
+   ログイン前ページフッターを更新
+    <a href="http://your_site_url/help">Help</a> Powered by <a href="http://www.openpne.jp/" target="_blank">OpenPNE</a>
+
+   ログイン後ページフッターを更新
+    <a href="http://your_site_url/help">Help</a> <a href="http://your_site_url/unregister"> Unregister </a> Powered by <a href="http://www.openpne.jp/" target="_blank">OpenPNE</a>
+   ※ your_site_url は差し替え

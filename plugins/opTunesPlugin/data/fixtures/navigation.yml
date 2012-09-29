@@ -1,0 +1,20 @@
+Navigation:
+  insecure_global_navigation_tunes_search:
+    type: "insecure_global"
+    uri: "@tunes"
+    sort_order: 40
+    Translation:
+      ja_JP:
+        caption: "曲"
+      en:
+        caption: "Tunes"
+
+  tunes:
+    type: "secure_global"
+    uri: "@tunes"
+    sort_order: 38
+    Translation:
+      ja_JP:
+        caption: "曲"
+      en:
+        caption: "Tunes"

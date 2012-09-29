@@ -1,0 +1,3 @@
+band_confirm: "Pending %band% joining requests"
+band_admin_request: "Pending %band% administrator taking over requests"
+band_sub_admin_request: "Pending %band% sub-administrator requests"

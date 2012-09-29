@@ -1,0 +1,60 @@
+Navigation:
+  insecure_global_navigation_band_search:
+    type: "insecure_global"
+    uri: "@band_search"
+    sort_order: 20
+    Translation:
+      ja_JP:
+        caption: "バンド"
+      en:
+        caption: "Bands"
+
+  insecure_global_navigation_member_search:
+    type: "insecure_global"
+    uri: "@member_search"
+    sort_order: 30
+    Translation:
+      ja_JP:
+        caption: "メンバー"
+      en:
+        caption: "Members"
+
+  bands:
+    type: "secure_global"
+    uri: "@band_search"
+    sort_order: 20
+    Translation:
+      ja_JP:
+        caption: "バンド"
+      en:
+        caption: "Bands"
+
+  band_navigation_home:
+    type: "band"
+    uri: "@band_home"
+    sort_order: 0
+    Translation:
+      ja_JP:
+        caption: "バンドトップ"
+      en:
+        caption: "Band Top"
+
+  band_navigation_join:
+    type: "band"
+    uri: "@band_join"
+    sort_order: 10
+    Translation:
+      ja_JP:
+        caption: "バンドに参加"
+      en:
+        caption: "Join Band"
+
+  band_navigation_quit:
+    type: "band"
+    uri: "@band_quit"
+    sort_order: 20
+    Translation:
+      ja_JP:
+        caption: "バンドを退会"
+      en:
+        caption: "Leave Band"

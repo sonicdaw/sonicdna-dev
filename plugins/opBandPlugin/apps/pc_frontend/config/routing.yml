@@ -1,0 +1,44 @@
+# band rules
+band_joinlist:
+  url: /band/joinList
+  param: { module: band, action: joinlist }
+
+band_search:
+  url: /band/search
+  param: { module: band, action: search }
+
+band_edit:
+  url: /band/edit
+  param: { module: band, action: edit }
+
+band_delete:
+  url: /band/delete/:id
+  param: { module: band, action: delete }
+  requirements: { id: \d+ }
+
+band_deleteImage:
+  url: /band/deleteImage
+  param: { module: band, action: deleteImage }
+
+band_memberList:
+  url: /band/member/list
+  param: { module: band, action: memberList }
+
+band_memberManage:
+  url: /band/member/manage/:id
+  param: { module: band, action: memberManage }
+  requirements: { id: \d+ }
+
+band_join:
+  url: /band/join
+  param: { module: band, action: join }
+
+band_quit:
+  url: /band/quit
+  param: { module: band, action: quit }
+
+band_home:
+  url:   /band/:id
+  param: { module: band, action: home }
+  requirements: { id: \d+ }
+

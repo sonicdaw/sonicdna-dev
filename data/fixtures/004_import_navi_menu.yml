@@ -1,0 +1,50 @@
+Navigation:
+  secure_global_navigation_home:
+    type: "secure_global"
+    uri: "@homepage"
+    sort_order: 0
+    Translation:
+      ja_JP:
+        caption: "マイホーム"
+      en:
+        caption: "My Home"
+
+  secure_global_navigation_member_search:
+    type: "secure_global"
+    uri: "@member_search"
+    sort_order: 30
+    Translation:
+      ja_JP:
+        caption: "メンバー"
+      en:
+        caption: "Members"
+
+  secure_global_navigation_logout:
+    type: "secure_global"
+    uri: "@member_logout"
+    sort_order: 50
+    Translation:
+      ja_JP:
+        caption: "ログアウト"
+      en:
+        caption: "Logout"
+
+  default_navigation_home:
+    type: "default"
+    uri: "@homepage"
+    sort_order: 0
+    Translation:
+      ja_JP:
+        caption: "ホーム"
+      en:
+        caption: "Home"
+
+  friend_navigation_home:
+    type: "friend"
+    uri: "@member_profile"
+    sort_order: 10
+    Translation:
+      ja_JP:
+        caption: "ホーム"
+      en:
+        caption: "Home"

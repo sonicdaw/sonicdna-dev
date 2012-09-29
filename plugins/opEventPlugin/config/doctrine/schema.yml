@@ -1,0 +1,134 @@
+options:
+  charset: utf8
+actAs: [Timestampable]
+
+Event:
+  columns:
+    id: { type: integer(4), primary: true, autoincrement: true, comment: "Serial number" }
+    name: { type: string(64), default: "", notnull: true, comment: "Event name" }
+    file_id: { type: integer(4), comment: "Top image file id" }
+    event_category_id: { type: integer(4), comment: "Event category id" }
+    event_status_id: { type: integer(4), comment: "Event status id" }
+    official_url:   { type: string, default: "http://", notnull: false, comment: "Official Link"}
+    event_date:                 {type: date, comment: "Event Date" }
+    event_open_time:            {type: time, comment: "Event Open Time" }
+    event_start_time:           {type: time, comment: "Event Start Time" }
+    event_rehearsal_start_time: {type: time, comment: "Event Rehearsal Start Time" }
+    access:         { type: string, default: "", notnull: false, comment: "Access"}
+    access_url:     { type: string, default: "http://", notnull: false, comment: "Access Link"}
+    access_map_url: { type: string, default: "http://", notnull: false, comment: "Access Map Link"}
+    address:        { type: string,       default: "",  notnull: false, comment: "access address"}
+    latitude:       { type: decimal, scale: 6, size: 10, notnull: false, comment: "access latitude"}
+    longitude:      { type: decimal, scale: 6, size: 10, notnull: false, comment: "access longitude"}
+    ticket:         { type: string, default: "", notnull: false, comment: "Ticket Info"}
+    ticket_url:     { type: string, default: "http://", notnull: false, comment: "Ticket Info Link"}
+    lineup_config:   { type: string, default: "band,1,10\rslot,set change,5\rmember,1,10", comment: "Lineup Config" }  
+    rehearsal_config:   { type: string, default: "band,1,10\rslot,set change,5\rmember,1,10", comment: "Rehearsal Config" }  
+    info_staff:        { type: string, default: "", comment: "Info for staff" }
+  relations:
+    File: { local: file_id, foreign: id, onDelete: set null }
+    EventCategory: { local: event_category_id, foreign: id, onDelete: set null }
+  indexes:
+    name_UNIQUE:
+      fields: [name]
+      type: unique
+  options:
+    type: INNODB
+    collate: utf8_unicode_ci
+    charset: utf8
+    comment: "Saves informations of events"
+
+EventMember:
+  columns:
+    id: { type: integer(4), primary: true, autoincrement: true, comment: "Serial number" }
+    event_id: { type: integer(4), notnull: true, comment: "Event id" }
+    member_id: { type: integer(4), notnull: true, comment: "Member id" }
+    is_pre: { type: boolean, notnull: true, default: false, comment: "Is pre member?" }
+    is_receive_mail_pc: { type: boolean, default: false, notnull: true, comment: "Notification of posting in event by computer E-mail." }
+    is_receive_mail_mobile: { type: boolean, default: false, notnull: true, comment: "Notification of posting in event by mobile E-mail." }
+  relations:
+    Event: { local: event_id, foreign: id, onDelete: cascade }
+    Member: { local: member_id, foreign: id, onDelete: cascade }
+  options:
+    type: INNODB
+    collate: utf8_unicode_ci
+    charset: utf8
+    comment: "Saves informations of members joined"
+
+EventMemberPosition:
+  columns:
+    id: { type: integer(4), primary: true, autoincrement: true, comment: "Serial number" }
+    event_id: { type: integer(4), notnull: true, comment: "Event id" }
+    member_id:    { type: integer(4), notnull: true, comment: "Member id" }
+    event_member_id: { type: integer(4), notnull: true, comment: "Event Member id" }
+    name: { type: string(32), notnull: true, comment: "Member''s position name in this event" }
+  indexes:
+    name_UNIQUE:
+      fields: [event_member_id, name]
+      type: unique
+  relations:
+    Event: { local: event_id, foreign: id, onDelete: cascade }
+    Member: { local: member_id, foreign: id, onDelete: cascade }
+    EventMember: { local: event_member_id, foreign: id, onDelete:cascade }
+  options:
+    type: INNODB
+    collate: utf8_unicode_ci
+    charset: utf8
+    comment: "Saves informations of the Event''s member roles"
+
+EventConfig:
+  columns:
+    id: { type: integer(4), primary: true, autoincrement: true, comment: "Serial number" }
+    event_id: { type: integer(4), notnull: true, comment: "Event id" }
+    name: { type: string(64), default: "", notnull: true, comment: "Configuration name" }
+    value: { type: string, comment: "Configuration value" }
+  relations:
+    Event: { local: event_id, foreign: id, onDelete: cascade }
+  options:
+    type: INNODB
+    collate: utf8_unicode_ci
+    charset: utf8
+    comment: "Saves configurations of communities"
+
+EventCategory:
+  actAs:
+    NestedSet:
+      hasManyRoots: true
+      rootColumnName: tree_key
+    Timestampable:
+  columns:
+    id: { type: integer(4), primary: true, autoincrement: true, comment: "Serial number" }
+    name: { type: string(64), default: "", notnull: true, comment: "Category name" }
+    is_allow_member_event: { type: boolean, default: true, notnull: true, comment: "Member can create this category event" }
+    tree_key: { type: integer(4), comment: "Nested tree key" }
+    sort_order: { type: integer(4), comment: "Order to sort" }
+  indexes:
+    lft_INDEX:
+      fields: [lft]
+  options:
+    type: INNODB
+    collate: utf8_unicode_ci
+    charset: utf8
+    comment: "Saves categories of event"
+
+
+EventLineUp:
+  columns:
+    id: { type: integer(4), primary: true, autoincrement: true, comment: "Serial number" }
+    sub_id:   { type: integer(4), default: 1,    comment: "id for player who has two or more slot" }
+    event_id: { type: integer(4), notnull: true, comment: "Event id" }
+    slot_type: { type: string(64), default: "", notnull: true, comment: "slot type(band or member or slot)" }
+    member_id: { type: integer(4), notnull: false, comment: "Member id" }
+    band_id:   { type: integer(4), notnull: false, comment: "Band id" }
+    slot_name: { type: string(64), default: "", notnull: false, comment: "Slot Name"}
+    duration:   { type: integer(4), notnull: true }
+  relations:
+    Event:  { local: event_id,  foreign: id, onDelete: cascade }
+    Member: { local: member_id, foreign: id, onDelete: cascade }
+    Band:   { local: band_id,   foreign: id, onDelete: cascade }
+  options:
+    type: INNODB
+    collate: utf8_unicode_ci
+    charset: utf8
+    comment: "Saves informations of lineup"
+

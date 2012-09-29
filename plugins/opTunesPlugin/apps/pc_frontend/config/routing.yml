@@ -1,0 +1,110 @@
+tunes:
+  url: /tunes
+  class: sfRequestRoute
+  param: { module: tunes, action: list }
+  requirements: { sf_method: [get] }
+
+tune_new:
+  url: /tune/new
+  class: sfRequestRoute
+  param: { module: tunes, action: new }
+  requirements: { sf_method: [get] }
+
+tune_create:
+  url: /tune
+  class: sfRequestRoute
+  param: { module: tunes, action: create }
+  requirements: { sf_method: [post] }
+
+tune_edit:
+  url: /tune/:id/edit
+  class: sfDoctrineRoute
+  param: { module: tunes, action: edit }
+  requirements:
+    id: \d+
+    sf_method: [get]
+  options: { model: Tune, type: object }
+
+tune_update:
+  url: /tune/:id/update
+  class: sfDoctrineRoute
+  param: { module: tunes, action: update }
+  requirements:
+    id: \d+
+    sf_method: [post]
+  options: { model: Tune, type: object }
+
+tune_show:
+  url: /tune/:id
+  class: sfDoctrineRoute
+  param: { module: tunes, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+  options: { model: Tune, type: object }
+
+tune_delete_confirm:
+  url: /tune/:id/delete
+  class: sfDoctrineRoute
+  param: { module: tunes, action: deleteConfirm }
+  requirements:
+    id: \d+
+    sf_method: [get]
+  options: { model: Tune, type object }
+
+tune_delete:
+  url: /tune/:id/delete
+  class: sfDoctrineRoute
+  param: { module: tunes, action: delete }
+  requirements:
+    id: \d+
+    sf_method: [post]
+  options: { model: Tune, type: object }
+
+# Additional New for Festival, Band Tunes
+
+# For Band
+tune_newForBand:
+  url: /tune/newForBand/:band_id
+  class: sfRequestRoute
+  param: { module: tunes, action: newForBand }
+  requirements:
+    band_id: \d+
+    sf_method: [get]
+
+tune_createForBand:
+  url: /tuneForBand/:band_id
+  class: sfRequestRoute
+  param: { module: tunes, action: createForBand }
+  requirements:
+    band_id: \d+
+    sf_method: [post]
+
+# For Festival
+tune_newForEvent:
+  url: /tune/newForEvent/:event_id/:band_id/:event_member_id/:player_sub_id
+  class: sfRequestRoute
+  param: { module: tunes, action: newForEvent }
+  requirements:
+    event_id: \d+
+    band_id: \d+
+    event_member_id: \d+
+    player_sub_id: \d+
+    sf_method: [get]
+
+tune_createForEvent:
+  url: /tuneForEvent/:event_id/:band_id/:event_member_id/:player_sub_id
+  class: sfRequestRoute
+  param: { module: tunes, action: createForEvent }
+  requirements:
+    event_id: \d+
+    band_id: \d+
+    event_member_id: \d+
+    player_sub_id: \d+
+    sf_method: [post]
+
+
+tune_deny:
+  url: /tune/*
+  param: { module: default, action: error }
+

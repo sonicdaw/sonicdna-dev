@@ -1,0 +1,3 @@
+event_confirm: "Pending %event% joining requests"
+event_admin_request: "Pending %event% administrator taking over requests"
+event_sub_admin_request: "Pending %event% sub-administrator requests"

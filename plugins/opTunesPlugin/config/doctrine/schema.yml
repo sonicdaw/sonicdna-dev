@@ -1,0 +1,20 @@
+options:
+  charset: utf8
+
+Tune:
+  actAs: [Timestampable]
+  columns:
+    member_id:   { type: integer(4), notnull: true }
+    tune_id:     { type: integer(4), notnull: true }
+    event_id:    { type: integer(4), notnull: false }
+    band_id:       { type: integer(4), notnull: false }
+    player_sub_id: { type: integer(4), notnull: false }
+    sort_order: { type: integer(4), comment: "Order to sort" }
+    tune_name:   { type: string(256), notnull: true }
+    artist_name: { type: string(256), notnull: true }
+    url:         { type: string,     default: "", notnull: false }
+    duration:    { type: integer(4), default: "", notnull: false }
+    visibility:  { type: integer(4), comment: "Public Scope" }
+    lyric:       { type: string,     default: "", notnull: false }
+  relations:
+    Member:      { foreign: id, onDelete: cascade }

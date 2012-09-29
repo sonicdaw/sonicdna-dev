@@ -1,0 +1,5 @@
+all:
+  default_nav: event
+  nav:
+    list: default
+    joinlist: default

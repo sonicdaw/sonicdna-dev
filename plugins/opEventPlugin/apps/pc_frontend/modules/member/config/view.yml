@@ -1,0 +1,7 @@
+homeSuccess:
+  customize:
+    cautionAboutEventMemberPre:
+      template    : [event, cautionAboutEventMemberPre]
+      parts       : [information]
+      target      : [bodyBottom]
+      is_component: true

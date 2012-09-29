@@ -1,0 +1,18 @@
+SnsTerm:
+  term_event_pc_frontend:
+    name: "event"
+    application: "pc_frontend"
+    Translation:
+      ja_JP:
+        value: "Event"
+      en:
+        value: "Event"
+
+  term_event_mobile_frontend:
+    name: "event"
+    application: "mobile_frontend"
+    Translation:
+      ja_JP:
+        value: "Event"
+      en:
+        value: "Event"

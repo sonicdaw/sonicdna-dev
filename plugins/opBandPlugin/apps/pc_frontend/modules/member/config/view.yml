@@ -1,0 +1,7 @@
+homeSuccess:
+  customize:
+    cautionAboutBandMemberPre:
+      template    : [band, cautionAboutBandMemberPre]
+      parts       : [information]
+      target      : [bodyBottom]
+      is_component: true

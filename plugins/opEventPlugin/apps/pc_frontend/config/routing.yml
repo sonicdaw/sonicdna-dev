@@ -1,0 +1,73 @@
+# event rules
+
+member_unregister:
+  url: /unregister
+  param: { module: event, action: unregister }
+
+help:
+  url: /help
+  param: { module: event, action: help }
+
+event_joinlist:
+  url: /event/joinList
+  param: { module: event, action: joinlist }
+
+event_search:
+  url: /event/search
+  param: { module: event, action: search }
+
+event_edit:
+  url: /event/edit
+  param: { module: event, action: edit }
+
+event_delete:
+  url: /event/delete/:id
+  param: { module: event, action: delete }
+  requirements: { id: \d+ }
+
+event_deleteImage:
+  url: /event/deleteImage
+  param: { module: event, action: deleteImage }
+
+event_memberList:
+  url: /event/member/list
+  param: { module: event, action: memberList }
+
+event_memberManage:
+  url: /event/member/manage/:id
+  param: { module: event, action: memberManage }
+  requirements: { id: \d+ }
+
+event_join:
+  url: /event/join
+  param: { module: event, action: join }
+
+event_quit:
+  url: /event/quit
+  param: { module: event, action: quit }
+
+event_home:
+  url:   /event/:id
+  param: { module: event, action: home }
+  requirements: { id: \d+ }
+
+
+event_top:
+  url: /event
+  param: { module: event, action: top }
+
+event_timetable:
+  url:   /event/timetable/:id
+  param: { module: event, action: timetable }
+  requirements: { id: \d+ }
+
+
+event_home_artists_frame:
+  url:   /event/:id/artists/frame
+  param: { module: event, action: home }
+  requirements: { id: \d+ }
+
+event_timetable_frame:
+  url:   /event/timetable/:id/frame
+  param: { module: event, action: timetable }
+  requirements: { id: \d+ }

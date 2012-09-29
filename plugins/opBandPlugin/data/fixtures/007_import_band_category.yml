@@ -1,0 +1,19 @@
+BandCategory:
+  band_category:
+    name: "All Categories"
+    is_allow_member_band: 1
+
+  band_category_rock:
+    name: "Rock"
+    tree_key: 1
+    is_allow_member_band: 1
+
+  band_category_classic:
+    name: "Classic"
+    tree_key: 1
+    is_allow_member_band: 1
+
+  band_category_jazz:
+    name: "Jazz"
+    tree_key: 1
+    is_allow_member_band: 1

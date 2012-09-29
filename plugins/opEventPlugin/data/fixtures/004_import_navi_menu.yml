@@ -1,0 +1,70 @@
+Navigation:
+  insecure_global_navigation_event_search:
+    type: "insecure_global"
+    uri: "@event_search"
+    sort_order: 10
+    Translation:
+      ja_JP:
+        caption: "イベント"
+      en:
+        caption: "Events"
+
+  insecure_global_navigation_login:
+    type: "insecure_global"
+    uri: "@login"
+    sort_order: 50
+    Translation:
+      ja_JP:
+        caption: "ログイン"
+      en:
+        caption: "Login"
+
+  events:
+    type: "secure_global"
+    uri: "@event_search"
+    sort_order: 10
+    Translation:
+      ja_JP:
+        caption: "イベント"
+      en:
+        caption: "Events"
+
+  event_navigation_home:
+    type: "event"
+    uri: "@event_home"
+    sort_order: 0
+    Translation:
+      ja_JP:
+        caption: "イベントトップ"
+      en:
+        caption: "Event Top"
+
+  event_navigation_timetable:
+    type: "event"
+    uri: "@event_timetable"
+    sort_order: 5
+    Translation:
+      ja_JP:
+        caption: "タイムテーブル"
+      en:
+        caption: "Timetable"
+
+  event_navigation_join:
+    type: "event"
+    uri: "@event_join"
+    sort_order: 10
+    Translation:
+      ja_JP:
+        caption: "イベントに参加"
+      en:
+        caption: "Join Event"
+
+  event_navigation_quit:
+    type: "event"
+    uri: "@event_quit"
+    sort_order: 20
+    Translation:
+      ja_JP:
+        caption: "イベントを退会"
+      en:
+        caption: "Leave Event"
