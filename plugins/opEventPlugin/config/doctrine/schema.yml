@@ -120,7 +120,7 @@ EventLineUp:
     slot_type: { type: string(64), default: "", notnull: true, comment: "slot type(band or member or slot)" }
     member_id: { type: integer(4), notnull: false, comment: "Member id" }
     band_id:   { type: integer(4), notnull: false, comment: "Band id" }
-    slot_name: { type: string(64), default: "", notnull: false, comment: "Slot Name"}
+    slot_name: { type: string, default: "", notnull: false, comment: "Slot Name"}
     duration:   { type: integer(4), notnull: true }
   relations:
     Event:  { local: event_id,  foreign: id, onDelete: cascade }
