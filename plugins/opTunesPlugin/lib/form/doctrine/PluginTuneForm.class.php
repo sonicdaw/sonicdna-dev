@@ -35,6 +35,7 @@ abstract class PluginTuneForm extends BaseTuneForm
 
 
     $member_id = sfContext::getInstance()->getUser()->getMemberId();
+    $band_list = Doctrine::getTable('BandMember')->findByMemberId($member_id);
 
     // events
     $events = array();
@@ -73,7 +74,6 @@ abstract class PluginTuneForm extends BaseTuneForm
     // bands
     array_push($field_list, 'band_id');
     $bands = array();
-    $band_list = Doctrine::getTable('BandMember')->findByMemberId($member_id);
     foreach ($band_list as $band_select)
     {
       $band = Doctrine::getTable('Band')->find($band_select->getBandId());
