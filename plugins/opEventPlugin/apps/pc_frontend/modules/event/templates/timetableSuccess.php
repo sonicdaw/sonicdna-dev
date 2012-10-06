@@ -109,7 +109,7 @@ foreach($eventlineup as $lineup)
           break;
 
         case 'slot':
-          echo nl2br($lineup->getSlotName());
+          echo nl2br(htmlspecialchars_decode($lineup->getSlotName()));
           break;
   }
   echo "</td>";
