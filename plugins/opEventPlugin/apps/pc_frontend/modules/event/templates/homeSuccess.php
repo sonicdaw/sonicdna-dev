@@ -240,6 +240,14 @@ for($i = count($eventlineup); $i >= 0; $i--)
           break;
 
         case 'slot':
+          preg_match("/<artist>(.*?)<\/artist>/i", htmlspecialchars_decode($lineup->getSlotName()), $artist_name);
+          if($artist_name[1]){
+            echo op_image_tag('no_image.gif', array('size' => '120x120', 'alt' => '')) . "</td><td>";
+            echo "</td><td>";
+
+            echo $artist_name[1];
+            echo "</td><td> ";
+          }
           break;
   }
   echo "</td></tr>";
