@@ -13,8 +13,13 @@ $event_time = $event->getEventStartTime();
 $event_time_val = explode(":", $event_time); 
 $event_time_unix = mktime($event_time_val[0],$event_time_val[1],$event_time_val[2],0,0,0);
 
+$event_open_time = $event->getEventOpenTime();
+$event_open_time_val = explode(":", $event_open_time); 
+$event_open_time_unix = mktime($event_open_time_val[0],$event_open_time_val[1],$event_open_time_val[2],0,0,0);
+
 if($event->getEventOpenTime()){
-  echo "<tr><td>" . op_format_date($event->getEventOpenTime(),'t') . "</td><td>Open</td><td></td></tr>";
+//  echo "<tr><td>" . op_format_date($event->getEventOpenTime(),'t') . "</td><td>Open</td><td></td></tr>";
+  echo "<tr><td>" . date("H:i", $event_open_time_unix) . "</td><td>Open</td><td></td></tr>";
 }
 
 // target blank for artists/frame
