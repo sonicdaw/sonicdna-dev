@@ -83,7 +83,7 @@ if($band->getOfficialUrl())
 // Member List
 if($band->getMemberList())
 {
-  $member_list = nl2br($band->getMemberList());
+  $member_list = nl2br(preg_replace('/&lt;linkoff&gt;(\s)*/i', '', $band->getMemberList()));
   $list += array(__('Other Members')      => $member_list );
 }
 

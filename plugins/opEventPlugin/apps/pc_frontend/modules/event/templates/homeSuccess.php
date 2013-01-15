@@ -208,6 +208,7 @@ for($i = count($eventlineup); $i >= 0; $i--)
 
           $bandMembers = Doctrine::getTable('BandMember')->findByBandId($lineup->getBandId());
           echo "</td><td>";
+       if(!preg_match("/<linkoff>/i", $band->getMemberList())){
           foreach($bandMembers as $bandMember){
             $lineupmem = Doctrine::getTable('Member')->find($bandMember->getMemberId());
             echo link_to($lineupmem->getName(), "@obj_member_profile?id=".$lineupmem->getId(), $target);
@@ -216,10 +217,11 @@ for($i = count($eventlineup); $i >= 0; $i--)
             }
             echo "<br>";
           }
+        }
           // Other Member List
           if($band->getMemberList())
           {
-            echo nl2br($band->getMemberList());
+            echo nl2br(preg_replace('/<linkoff>(\s)*/i', '', $band->getMemberList()));
           }
 
           break;
