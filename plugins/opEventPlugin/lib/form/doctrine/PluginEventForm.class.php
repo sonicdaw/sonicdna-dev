@@ -72,9 +72,9 @@ abstract class PluginEventForm extends BaseEventForm
 
     $this->widgetSchema->getFormFormatter()->setTranslationCatalogue('form_event');
 
-    $years = range(2012, 2015);
+    $years = range(2016, 2018);
     $this->setWidget('event_date', new sfWidgetFormDate(array(
-      'default' => '01/01/2012',
+      'default' => '01/01/2016',
       'format' => '%year% - %month% - %day%',
       'years'   => array_combine($years, $years)
     )));
