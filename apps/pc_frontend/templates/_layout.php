@@ -118,9 +118,10 @@ include_component('default', 'localNav', $localNavOptions);
 
 </div><!-- Layout -->
 
+<!-- 
 <div id="sideBanner">
 <?php include_component('default', 'sideBannerGadgets'); ?>
-</div><!-- sideBanner -->
+</div> --><!-- sideBanner -->
 
 </div><!-- ContentsContainer -->
 </div><!-- Contents -->
