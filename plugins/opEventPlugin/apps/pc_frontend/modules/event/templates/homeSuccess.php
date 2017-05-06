@@ -134,7 +134,7 @@ $options = array(
   'title' => __('%event% details', array('%event%' => $op_term['event']->titleize())),
   'list' => $list,
 );
-op_include_parts('listBox', 'eventHome', $options);
+//op_include_parts('listBox', 'eventHome', $options);
 ?>
 
 
@@ -151,7 +151,7 @@ if ($isAdmin || $isSubAdmin)
 {
   $options['moreInfo'][] = link_to(__('Management member'), '@event_memberManage?id='.$event->getId());
 }
-op_include_parts('nineTable', 'frendList', $options);
+//op_include_parts('nineTable', 'frendList', $options);
 ?>
 <?php end_slot(); ?>
 
