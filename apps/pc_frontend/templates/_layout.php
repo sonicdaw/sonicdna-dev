@@ -30,7 +30,29 @@ var openpne = '.json_encode($jsonData).';
 <?php endif ?>
 <?php include_javascripts() ?>
 <?php echo $op_config->get('pc_html_head') ?>
+<meta name="viewport" content="width=device-width,initial-scale=0.5,user-scalable=yes" />
 </head>
+<style type="text/css" media="screen" >
+#Container {
+  min-width: 720px;
+}
+#HeaderContainer,
+#ContentsContainer,
+#FooterContainer {
+  width: 710px;
+}
+#LayoutC #Center {
+  width: 720px;
+}
+#globalNav {
+  width: 600px;
+}
+#topBanner {
+  width: 200px;
+}
+float: none;
+margin-left :0;
+</style>
 <body id="<?php printf('page_%s_%s', $view->getModuleName(), $view->getActionName()) ?>" class="<?php echo opToolkit::isSecurePage() ? 'secure_page' : 'insecure_page' ?>">
 
 
