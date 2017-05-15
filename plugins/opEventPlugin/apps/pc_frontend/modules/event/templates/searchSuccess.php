@@ -18,7 +18,7 @@ foreach ($pager->getResults() as $key => $event)
 {
   $list[$key] = array();
   $list[$key][__('%event% Name', array('%event%' => $op_term['event']->titleize()))] = $event->getName();
-  $list[$key][__('Count of Members')] = $event->countEventMembers();
+//  $list[$key][__('Count of Members')] = $event->countEventMembers();
   $list[$key][__('Description')] = $event->getConfig('description');
 }
 
