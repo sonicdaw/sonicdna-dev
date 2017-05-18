@@ -227,7 +227,8 @@ abstract class opEventPluginAction extends sfActions
     }
 
     $this->pager = new opNonCountQueryPager('Event', $this->size);
-    $q = $this->filters->getQuery()->orderBy('id desc');
+    $q = $this->filters->getQuery()->orderBy('id desc')
+              ->addWhere('id != 1')->addWhere('id != 2');	// remove part of event in the list
     $this->pager->setQuery($q);
     $this->pager->setPage($request->getParameter('page', 1));
     $this->pager->init();
