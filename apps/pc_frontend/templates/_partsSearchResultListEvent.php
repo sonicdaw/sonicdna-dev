@@ -1,7 +1,6 @@
 <?php slot('pager') ?>
 <?php op_include_pager_navigation($options['pager'], $options['link_to_page'], array('use_current_query_string' => true)); ?>
 <?php end_slot(); ?>
-<?php include_slot('pager') ?>
 
 <div class="block">
 <?php foreach ($options['pager']->getResults() as $key => $result): ?>
@@ -12,6 +11,28 @@
 <?php endforeach; ?>
 </div></div>
 <?php endforeach; ?>
-</div>
 
-<?php include_slot('pager') ?>
+
+<!-- Old events which is not in db -->
+
+<div class="ditem"><div class="item">
+<a href="https://github.com/sonicdna/sonicdna-dev/"><img alt="" src="http://sonicdna.net/2012/sonicdna2012.jpg" width="680" height="250" /></a><br />
+</div></div>
+
+<div class="ditem"><div class="item">
+<a href="http://sonicdna.net/2011/"><img alt="" src="http://sonicdna.net/2011/sonicdna2011Banner.jpg" width="680" height="250" /></a><br />
+</div></div>
+
+<div class="ditem"><div class="item">
+<a href="http://sonicdna.net/2010/"><img alt="" src="http://sonicdna.net/2010/image/logo_sonicdna10winter.jpg" width="680" /></a><br />
+</div></div>
+
+<div class="ditem"><div class="item">
+<a href="http://sonicdna.net/2009/"><img alt="" src="http://sonicdna.net/2009/Image/BACK.JPG" width="680" height="250" /></a><br />
+</div></div>
+
+<div class="ditem"><div class="item">
+<a href="http://sonicdna.net/2008/"><img alt="" src="http://sonicdna.net/2008/Image/BACK.JPG" width="680" height="250" /></a><br />
+</div></div>
+
+</div>
