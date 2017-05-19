@@ -6,26 +6,11 @@
 <div class="block">
 <?php foreach ($options['pager']->getResults() as $key => $result): ?>
 <?php $list = $options->list->getRaw($key); ?>
-<div class="ditem"><div class="item"><table><tbody><tr>
-<td rowspan="<?php echo count($list) ?>" class="photo">
-<?php echo link_to(op_image_tag_sf_image($result->getImageFilename(), array('size' => '408x150')), sprintf($options['link_to_detail'], $result->getId())); ?><br />
-<?php echo link_to(__('Details'), sprintf($options['link_to_detail'], $result->getId())) ?>
-</td>
-<th>
-<?php
-reset($list);
-echo key($list);
-?>
-</th><td>
-<?php echo array_shift($list); ?>
-</td>
-</tr>
+<div class="ditem"><div class="item">
+<?php echo link_to(op_image_tag_sf_image($result->getImageFilename()), sprintf($options['link_to_detail'], $result->getId())); ?><br />
 <?php foreach ($list as $caption => $item) : ?>
-<tr>
-<th><?php echo $caption ?></th><td><?php echo op_truncate($item, 36, '', 3) ?></td>
-</tr>
 <?php endforeach; ?>
-</tbody></table></div></div>
+</div></div>
 <?php endforeach; ?>
 </div>
 
